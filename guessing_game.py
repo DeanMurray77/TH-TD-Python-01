@@ -10,9 +10,9 @@ def start_game():
     print("Then, you can guess again.")
     print("The system will keep track of your fewest number of guesses to win during a particular session.")
 
-    user_wants_to_continue = "yes"
+    user_wants_to_continue = "blah"
     low_score = 999999
-    while user_wants_to_continue != "no":
+    while user_wants_to_continue.lower() != "no":
 
         if low_score == 999999:
             print("This is the first time through, so there currently isn't a high score.")
@@ -48,10 +48,10 @@ def start_game():
                 break
         
         if count_of_guesses < low_score:
-            print("Your new best score is {}:".format(count_of_guesses))
+            print("Your new best score is {}.".format(count_of_guesses))
             low_score = count_of_guesses
         else:
-            print("Your current best score is {}:".format(low_score))
+            print("Your current best score is {}.".format(low_score))
         
         user_wants_to_continue = "blah"
         while((user_wants_to_continue.lower() != 'yes') and (user_wants_to_continue.lower() != 'no')):
