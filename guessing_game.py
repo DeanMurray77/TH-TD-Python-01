@@ -19,7 +19,7 @@ def start_game():
         if low_score == 999999:
             print("This is the first time through, so there currently isn't a high score.")
         else:
-            print("/nYour current best score is {}.".format(low_score))
+            print("\nYour current best score is {}.".format(low_score))
         count_of_guesses = 0
         random_number = random.randint(1,20)
         while True:
@@ -46,7 +46,10 @@ def start_game():
                     count_of_guesses += 1
                     continue
                 count_of_guesses += 1
-                print("\nCongratulations, you got it! The number was {}, and it only took you {} guesses!".format(random_number, count_of_guesses))
+                if count_of_guesses == 1:
+                    print("\nCongratulations, you got it! The number was {}, and it only took you {} guess!".format(random_number, count_of_guesses))
+                else:
+                    print("\nCongratulations, you got it! The number was {}, and it only took you {} guesses!".format(random_number, count_of_guesses))
                 break
         
         if count_of_guesses < low_score:
@@ -61,7 +64,10 @@ def start_game():
             if ((user_wants_to_continue.lower() != 'yes') and (user_wants_to_continue.lower() != 'no')):
                 print("Please enter 'yes' or 'no' without the quotes")
         
-    print("\nThanks for playing. Your best score for this session was {} guesses.".format(low_score))
+    if low_score == 1:
+        print("\nThanks for playing. Your best score for this session was {} guess.".format(low_score))
+    else:
+        print("\nThanks for playing. Your best score for this session was {} guesses.".format(low_score))
     
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
